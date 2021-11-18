@@ -33,6 +33,15 @@
 						<img src="public/logo.png" />
 						<h1>Vue.js Poster Shop</h1>
 					</div>
+					<form class="search-bar" v-on:submit.prevent="onSubmit">
+						<input
+							type="text"
+							placeholder="Search for poster"
+							required
+							v-model="search"
+						/>
+						<input type="submit" value="Submit" class="btn" />
+					</form>
 				</div>
 			</div>
 			<div class="main container">
@@ -87,6 +96,10 @@
 		<script
 			type="text/javascript"
 			src="node_modules/vue/dist/vue.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="node_modules/axios/dist/axios.min.js"
 		></script>
 		<script type="text/javascript" src="public/script.js"></script>
 	</body>

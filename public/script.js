@@ -3,23 +3,24 @@ new Vue({
 	data: {
 		total: 0,
 		products: [
-			{
-				title: "product 1",
-				id: 1,
-				price: 9.99,
-			},
-			{
-				title: "product 2",
-				id: 2,
-				price: 9.99,
-			},
-			{
-				title: "product 3",
-				id: 3,
-				price: 9.99,
-			},
+			// {
+			// 	title: "product 1",
+			// 	id: 1,
+			// 	price: 9.99,
+			// },
+			// {
+			// 	title: "product 2",
+			// 	id: 2,
+			// 	price: 9.99,
+			// },
+			// {
+			// 	title: "product 3",
+			// 	id: 3,
+			// 	price: 9.99,
+			// },
 		],
 		cart: [],
+		search: "",
 	},
 	methods: {
 		addToCart: function (product) {
@@ -52,6 +53,10 @@ new Vue({
 				var i = this.cart.indexOf(item);
 				this.cart.splice(i, 1);
 			}
+		},
+		onSubmit: function () {
+			const path = "/search?q=".concat(this.search);
+			axios.get(path).then((response) => this.products.push(...response.data));
 		},
 	},
 	filters: {
